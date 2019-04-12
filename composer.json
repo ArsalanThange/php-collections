@@ -1,0 +1,21 @@
+{
+    "name": "arsalanthange/phpcollections",
+    "description": "A simple PHP collection class that makes your life easier to work with arrays. Inspired from Laravel Collections.",
+    "keywords": ["php", "array", "collection"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arsalan Thange",
+            "email": "arsalan.thange@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+		"php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArsalanThange\\Collection\\": "src/"
+        }
+    }
+}
