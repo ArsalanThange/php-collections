@@ -1,5 +1,5 @@
 {
-    "name": "arsalanthange/phpcollections",
+    "name": "arsalanthange/php-collections",
     "description": "A simple PHP collection class that makes your life easier to work with arrays. Inspired from Laravel Collections.",
     "keywords": ["php", "array", "collection"],
     "license": "MIT",
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ArsalanThange\\Collection\\": "src/"
+            "ArsalanThange\\Collections\\": "src/"
         }
     }
 }

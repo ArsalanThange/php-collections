@@ -1,6 +1,6 @@
 <?php
 
-namespace ArsalanThange\PHPCollection;
+namespace ArsalanThange\Collections;
 
 class Collection implements \Countable
 {
