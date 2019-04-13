@@ -67,6 +67,45 @@ class Collection implements \Countable
     }
 
     /**
+     * Filter collection based on user given parameters.
+     *
+     * @param string $key       Key of the collection on which the filter is to be performed.
+     * @param string $operation Operation based on which the collection is to be filtered.
+     * @param string $value     Value on which the filter is to be performed.
+     * @return static
+     */
+    public function where($key, $operation, $value)
+    {
+        $this->array = array_filter($this->array, function ($elem) use ($key, $operation, $value) {
+
+            if (is_object($elem)) {
+                $val = $elem->$key;
+            } else {
+                $val = $elem[$key];
+            }
+
+            switch ($operation) {
+                case "=":
+                    return $val == $value;
+                case "!=":
+                    return $val != $value;
+                case ">=":
+                    return $val >= $value;
+                case "<=":
+                    return $val <= $value;
+                case ">":
+                    return $val > $value;
+                case "<":
+                    return $val < $value;
+                default:
+                    return true;
+            }
+        });
+
+        return new static($this->array);
+    }
+
+    /**
      * Paginates the collection.
      *
      * @param int $page     Page number.
