@@ -104,7 +104,6 @@ $array = [
 
 $collection = new Collection($array);
 
-//Count the number of elements
 $collection->values()->all();
 
 /*Output: [
@@ -113,4 +112,30 @@ $collection->values()->all();
     ['apples' => 15, 'bananas' => 10, 'oranges' => 6]
 ]
 */
+```
+
+#### Get value of a specified key
+The `get` method returns the value of the specified key. Returns `null` if the key does not exist and if no default value is specified.
+```php
+$array = [
+    'first_basket' => ['apples' => 5, 'bananas' => 3, 'oranges' => 2],
+    'second_basket' => ['apples' => 10, 'bananas' => 5, 'oranges' => 1],
+    'third_basket' => ['apples' => 15, 'bananas' => 10, 'oranges' => 6]
+];
+
+$collection = new Collection($array);
+
+$collection->get('first_basket');
+
+// Output: ['apples' => 5, 'bananas' => 3, 'oranges' => 2]
+
+$collection->get('fourth_basket');
+
+// Output: null
+
+//Second parameter is the default value if the key does not exist
+$collection->get('fourth_basket', 'No fruits here!');
+
+// Output: No fruits here!
+
 ```
