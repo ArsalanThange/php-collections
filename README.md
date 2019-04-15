@@ -26,10 +26,10 @@ $collection->sort('DESC')->all();
 ```
 
 #### Paginate the Collection
-Note: This is currently not a length aware pagination.
+Note: This method does not return a `Collection` instance.
 The `paginate` method accepts 2 parameters.
 ```php
-$array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 $collection = new Collection($array);
 
@@ -40,9 +40,17 @@ $page = 1;
 $count = 4
 
 //Paginate the collection
-$collection->paginate($page, $count)->all();
+$collection->paginate($page, $count);
 
-//Output: [1, 2, 3, 4]
+/*Output: [
+    'total' => 20,
+    'current_page' => 1,
+    'total_pages' => 5,
+    'from' => 1,
+    'to' => 4,
+    'data' => [1, 2, 3, 4]
+]
+*/
 ```
 
 If you require elements on the next page simply increment the page value.

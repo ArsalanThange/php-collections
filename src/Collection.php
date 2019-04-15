@@ -114,9 +114,25 @@ class Collection implements \Countable
      */
     public function paginate($page = 1, $count = 10)
     {
+        $total = count($this->array);
+        $total_pages = ceil($total / $count);
+        $page = $page > $total_pages ? $total_pages : $page;
+        $current_page = $page;
         $offset = max(0, ($page - 1) * $count);
+        $from = $offset + 1;
+        $to = $offset + $count;
+        $data = array_slice($this->array, $offset, $count, true);
 
-        return new static(array_slice($this->array, $offset, $count, true));
+        $response = [
+            'total' => $total,
+            'current_page' => $page,
+            'total_pages' => $total_pages,
+            'from' => $from,
+            'to' => $to,
+            'data' => $data,
+        ];
+        
+        return $response;
     }
 
     /**
