@@ -15,19 +15,19 @@ $collection = new Collection($array);
 #### Sorting the Collection
 ```php
 //Sort in Ascending Order
-$collection->sort()->values()->all();
+$collection->sort()->all();
 
 //Output: ['a', 't', 2, 5, 7]
 
 //Sort in Descending Order
-$collection->sort('DESC')->values()->all();
+$collection->sort('DESC')->all();
 
 //Output: [7, 5, 2, 't', 'a']
 ```
 
 #### Paginate the Collection
 Note: This is currently not a length aware pagination.
-The `paginate` method accepts 2 parameters
+The `paginate` method accepts 2 parameters.
 ```php
 $array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -40,7 +40,7 @@ $page = 1;
 $count = 4
 
 //Paginate the collection
-$collection->paginate($page, $count)->values()->all();
+$collection->paginate($page, $count)->all();
 
 //Output: [1, 2, 3, 4]
 ```
@@ -60,7 +60,7 @@ $array = [
 $collection = new Collection($array);
 
 //Filter the collection
-$collection->where('apples', '>', 5)->values()->all();
+$collection->where('apples', '>', 5)->all();
 
 /*
 Output: [
@@ -69,10 +69,10 @@ Output: [
 ]
 */
 ```
-You can chain the `where` method to apply multiple filters
+You can chain the `where` method to apply multiple filters.
 ```php
 //Filter the collection
-$collection->where('apples', '>', 5)->where('bananas', '=', 10)->values()->all();
+$collection->where('apples', '>', 5)->where('bananas', '=', 10)->all();
 
 /*
 Output: [
@@ -91,3 +91,26 @@ $collection = new Collection($array);
 $collection->count();
 
 //Output: 10
+```
+
+#### Reset Array keys
+The `values` method resets your array keys.
+```php
+$array = [
+    'first_basket' => ['apples' => 5, 'bananas' => 3, 'oranges' => 2],
+    'second_basket' => ['apples' => 10, 'bananas' => 5, 'oranges' => 1],
+    'third_basket' => ['apples' => 15, 'bananas' => 10, 'oranges' => 6]
+];
+
+$collection = new Collection($array);
+
+//Count the number of elements
+$collection->values()->all();
+
+/*Output: [
+    ['apples' => 5, 'bananas' => 3, 'oranges' => 2],
+    ['apples' => 10, 'bananas' => 5, 'oranges' => 1],
+    ['apples' => 15, 'bananas' => 10, 'oranges' => 6]
+]
+*/
+```
