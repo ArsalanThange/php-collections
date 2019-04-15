@@ -128,4 +128,20 @@ class Collection implements \Countable
     {
         return count($this->array);
     }
+
+    /**
+     * Returns value at the specified key. Returns null if the key doesnt exist and no default value is specified.
+     *
+     * @param string $key           Key whose value is to be returned
+     * @param mixed $default_value  If the key does not exist, return the default value.
+     * @return mixed
+     */
+    public function get($key, $default_value = null)
+    {
+        if (isset($this->array[$key])) {
+            return $this->array[$key];
+        }
+
+        return $default_value;
+    }
 }
