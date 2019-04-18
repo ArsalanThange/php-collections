@@ -147,3 +147,27 @@ $collection->get('fourth_basket', 'No fruits here!');
 // Output: No fruits here!
 
 ```
+
+#### Sum elements in the collection
+```php
+$array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+$collection = new Collection($array);
+
+//Sum elments
+$collection->sum();
+
+//Output: 55
+```
+
+#### Average elements in the collection
+```php
+$array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+$collection = new Collection($array);
+
+//Average elements
+$collection->avg();
+
+//Output: 5.5
+```

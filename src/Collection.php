@@ -165,7 +165,7 @@ class Collection implements \Countable
      * Sums the values in the given collection.
      * Only sums the numerical values, any non-numerical values will be not disregarded.
      *
-     * @return int
+     * @return float
      */
     public function sum()
     {
@@ -176,7 +176,7 @@ class Collection implements \Countable
      * Averages the values in the given collection.
      * Only averages the numerical values, any non-numerical values will be not disregarded.
      *
-     * @return int
+     * @return float
      */
     public function avg()
     {
