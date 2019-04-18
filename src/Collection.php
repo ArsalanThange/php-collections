@@ -163,7 +163,7 @@ class Collection implements \Countable
 
     /**
      * Sums the values in the given collection.
-     * Only sums the numerical values, any non-numerical values will be not disregarded.
+     * Only sums the numerical values, any non-numerical values will be disregarded.
      *
      * @return float
      */
@@ -174,7 +174,8 @@ class Collection implements \Countable
 
     /**
      * Averages the values in the given collection.
-     * Only averages the numerical values, any non-numerical values will be not disregarded.
+     * Only sums the numerical values, any non-numerical values will be disregarded.
+     * Hence the average value may be incorrect if there is a non numerical value in the array.
      *
      * @return float
      */
