@@ -131,7 +131,7 @@ class Collection implements \Countable
             'to' => $to,
             'data' => $data,
         ];
-        
+
         return $response;
     }
 
@@ -170,5 +170,16 @@ class Collection implements \Countable
     public function sum()
     {
         return array_sum($this->array);
+    }
+
+    /**
+     * Averages the values in the given collection.
+     * Only averages the numerical values, any non-numerical values will be not disregarded.
+     *
+     * @return int
+     */
+    public function avg()
+    {
+        return array_sum($this->array) / count($this->array);
     }
 }
