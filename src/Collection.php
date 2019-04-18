@@ -160,4 +160,15 @@ class Collection implements \Countable
 
         return $default_value;
     }
+
+    /**
+     * Sums the values in the given collection.
+     * Only sums the numerical values, any non-numerical values will be not disregarded.
+     *
+     * @return int
+     */
+    public function sum()
+    {
+        return array_sum($this->array);
+    }
 }
