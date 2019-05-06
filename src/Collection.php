@@ -183,4 +183,24 @@ class Collection implements \Countable
     {
         return array_sum($this->array) / count($this->array);
     }
+
+    /**
+     * Joins items in the collection into a string.
+     *
+     * @param string $glue  The value which is to be used to separate each element in the string
+     * @param string $key   If the array is associative, the key whose values are to be joined
+     * @return string
+     */
+    public function implode($glue = ',', $key = null)
+    {
+        if (!$key) {
+            return implode($glue, $this->array);
+        } else {
+            $response = implode($glue, array_map(function ($elem) use ($key) {
+                return $elem[$key];
+            }, $this->array));
+
+            return $response;
+        }
+    }
 }
