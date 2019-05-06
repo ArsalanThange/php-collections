@@ -171,3 +171,38 @@ $collection->avg();
 
 //Output: 5.5
 ```
+
+#### Join elements in the collection into a string
+```php
+$array = [1, 2, 3, 4];
+
+$collection = new Collection($array);
+
+//Join elements
+$collection->implode();
+
+//Output: 1,2,3,4
+```
+If you wish to specify the `glue` for implode you can pass the value in `implode` method.
+
+```php
+//Join elements
+$collection->implode('-');
+
+//Output: 1-2-3-4
+```
+If the collection contains arrays or objects, you must pass the `key` of the attributes you wish to join, and the `glue`  you wish to place between the values.
+```php
+$array = [
+    [ 'foo' => 1, 'bar' => 2],
+    [ 'foo' => 3, 'bar' => 4],
+    [ 'foo' => 5, 'bar' => 6],
+];
+
+$collection = new Collection($array);
+
+//Join elements
+$collection->implode(',', 'foo');
+
+//Output: 1,3,5
+```
